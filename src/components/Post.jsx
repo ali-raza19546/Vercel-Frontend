@@ -14,6 +14,7 @@ function Post({ post }) {
     useDeletePostMutation();
   const dispatch = useDispatch();
   let { username, _id, profileImg } = post.user;
+
   // jo bhi owner he usko apni post pr cross dikhna chaiey post ki id bhi aur user ki id bhi he
   const [isLike, setIsLike] = useState(post.likes.includes(_id));
   const [likeCount, setLikeCount] = useState(post.likeCount);
@@ -28,7 +29,8 @@ function Post({ post }) {
         {},
         { headers: { Authorization: `Bearer ${token}` } },
       );
-      console.log(data);
+      console.log(profileImg);
+      console.log(post);
       setLikeCount(data.likeCount);
       setIsLike(data.like);
     } catch (e) {
@@ -54,7 +56,7 @@ function Post({ post }) {
           <div className="flex items-center gap-4 px-4 py-3  ">
             <div className=" bg-zinc-400 rounded-full  w-13 h-13 overflow-hidden flex items-center justify-center">
               <img
-                src={`${post.profileImg}`}
+                src={profileImg}
                 alt="profile"
                 className="w-full postImgPf  h-full bg-contain bg-center"
               />
@@ -78,7 +80,7 @@ function Post({ post }) {
         {/* Post Image */}
         <div className="w-full">
           <img
-            src={`${post.image}`}
+            src={post.image}
             alt="post"
             className="w-full h-50 sm:h-70 md:h-100 object-cover bg-center shadow-md shadow-zinc-200"
           />
