@@ -54,7 +54,7 @@ function Post({ post }) {
           <div className="flex items-center gap-4 px-4 py-3  ">
             <div className=" bg-zinc-400 rounded-full  w-13 h-13 overflow-hidden flex items-center justify-center">
               <img
-                src={`https://backend-sm-liard.vercel.app/uploads/${profileImg}`}
+                src={`${post.profileImg}`}
                 alt="profile"
                 className="w-full postImgPf  h-full bg-contain bg-center"
               />
@@ -78,7 +78,7 @@ function Post({ post }) {
         {/* Post Image */}
         <div className="w-full">
           <img
-            src={`https://backend-sm-liard.vercel.app/uploads/${post.image}`}
+            src={`${post.image}`}
             alt="post"
             className="w-full h-50 sm:h-70 md:h-100 object-cover bg-center shadow-md shadow-zinc-200"
           />
