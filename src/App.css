@@ -1,0 +1,32 @@
+
+@import "tailwindcss";
+/* LoadingState */
+.signUpPfImg{
+  object-fit:cover;
+}
+.postImgPf{
+  object-fit: cover;
+}
+.containerSignup{
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.pfCircle{
+  margin-top: 6em;
+}
+@media (max-width : 730px) {
+  .containerSignup{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem 0px;
+  }
+  .pfCircle{
+    position: absolute;
+    top: 0;
+    margin-top: -2rem;
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+}
