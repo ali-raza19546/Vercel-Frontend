@@ -41,13 +41,12 @@ function SignUp() {
             password: "",
             confirmPassword: "",
           });
-          alert("We have sen't to the Email verification!");
         }
       } else {
         handleError("password does not match!");
       }
     } catch (error) {
-      console.log(error.response.data.message);
+      handleError(error.response.data.message);
     }
   };
 
