@@ -16,7 +16,7 @@ function Login() {
     e.preventDefault();
     try {
       let { data } = await axios.post(
-        "http://localhost:8080/api/login",
+        "https://backend-sm-liard.vercel.app/api/login",
         loginForm,
         { withCredentials: true },
       );
@@ -64,7 +64,12 @@ function Login() {
         <button className="bg-green-700 cursor-pointer text-lg w-full mt-3 py-1 hover:bg-green-600 duration-300 ">
           Login
         </button>
-        {/* <p className='text-center mt-4 text-md text-zinc-700'>Don't have Account: <Link className='text-blue-500 font-semibold' to={"/signup"}>SignUp</Link></p> */}
+        <p className="text-center mt-4 text-md text-zinc-700">
+          Don't have Account:{" "}
+          <Link className="text-blue-500 font-semibold" to={"/signup"}>
+            SignUp
+          </Link>
+        </p>
       </form>
     </div>
   );

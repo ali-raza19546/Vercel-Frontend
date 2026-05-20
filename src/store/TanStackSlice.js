@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const postApi = createApi({
   reducerPath: "postApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8080",
+    baseUrl: "https://backend-sm-liard.vercel.app",
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("token");
       headers.set("Authorization", `Bearer ${token}`);

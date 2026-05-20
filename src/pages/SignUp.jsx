@@ -29,7 +29,10 @@ function SignUp() {
     fd.append("password", signUpForm.password);
     try {
       if (signUpForm.password === signUpForm.confirmPassword) {
-        let resData = await axios.post("http://localhost:8080/api/signup", fd);
+        let resData = await axios.post(
+          "https://backend-sm-liard.vercel.app/api/signup",
+          fd,
+        );
         if (resData.data.success) {
           handleSuccess(resData.data.message);
           setSignUpForm({
@@ -44,7 +47,7 @@ function SignUp() {
         handleError("password does not match!");
       }
     } catch (error) {
-      handleError(error.response.data.message);
+      console.log(error);
     }
   };
 
