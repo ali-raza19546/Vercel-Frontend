@@ -3,11 +3,13 @@ import axios from "axios";
 import { handleSuccess, handleError } from "../utils/utils.js";
 import { Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
+import { Loader } from "lucide-react";
 
 function SignUp() {
   // user ka username nikalna he to {user} user.username
   const [pfImage, setPfImage] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [signUpForm, setSignUpForm] = useState({
     username: "",
@@ -28,6 +30,7 @@ function SignUp() {
     fd.append("email", signUpForm.email);
     fd.append("password", signUpForm.password);
     try {
+      setIsLoading(true);
       if (signUpForm.password === signUpForm.confirmPassword) {
         let resData = await axios.post(
           "https://backend-sm-liard.vercel.app/api/signup",
@@ -42,6 +45,7 @@ function SignUp() {
             confirmPassword: "",
           });
         }
+        setIsLoading(false);
       } else {
         handleError("password does not match!");
       }
@@ -117,8 +121,11 @@ function SignUp() {
             onChange={handleOnChange}
             className="border border-zinc-500 p-2 w-full my-2"
           />
-          <button className="bg-green-700 cursor-pointer text-lg w-full mt-3 py-1 ">
-            Submit
+          <button
+            className="bg-green-700 cursor-pointer text-lg w-full mt-3 py-1 "
+            disabled={isLoading}
+          >
+            {isLoading ? <Loader /> : "Submit"}
           </button>
           <p className="text-center mt-4 text-md text-zinc-700">
             Already have Account:{" "}

@@ -8,6 +8,7 @@ import Header from "../components/Header.jsx";
 function Login() {
   const navigate = useNavigate();
   const [loginForm, setLoginForm] = useState({ username: "", password: "" });
+  const [loading, setLoading] = useState(false);
   const handleOnChange = (e) => {
     setLoginForm({ ...loginForm, [e.target.name]: e.target.value });
   };
@@ -15,6 +16,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       let { data } = await axios.post(
         "https://backend-sm-liard.vercel.app/api/login",
         loginForm,
@@ -29,6 +31,7 @@ function Login() {
           }),
         );
         localStorage.setItem("token", token);
+        setLoading(false);
         handleSuccess(data.message);
 
         navigate("/postlist");
@@ -61,8 +64,8 @@ function Login() {
           onChange={handleOnChange}
           className="border border-zinc-500 p-2 shadow-md rounded-md w-full  mt-1"
         />
-        <button className="bg-green-700 cursor-pointer text-lg w-full mt-3 py-1 hover:bg-green-600 duration-300 ">
-          Login
+        <button className="bg-green-700 cursor-pointer px-2 text-lg w-full mt-3 py-1 hover:bg-green-600 duration-300 ">
+          {loading ? `Logging In... ${(<Loader size={17} />)}` : "Login"}
         </button>
         <p className="text-center mt-4 text-md text-zinc-700">
           Don't have Account:{" "}

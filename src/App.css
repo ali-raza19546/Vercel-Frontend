@@ -27,6 +27,21 @@
     top: 0;
     margin-top: -2rem;
     width: 3.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 3.6rem;
+  }
+  
+}
+@media (max-width:400px) {
+  .likesCom{
+    display: none;
+  }
+  .createPst{
+padding: 20px;
+  }
+  .submitBtn{
+    margin-top: .15rem;
   }
 }

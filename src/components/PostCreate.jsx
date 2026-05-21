@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAddPostMutation } from "../store/TanStackSlice";
 import { handleError, handleSuccess } from "../utils/utils.js";
+import { Loader } from "lucide-react";
 
 function PostCreate() {
   // let { user } = JSON.parse(localStorage.getItem("userInfo"));
@@ -42,10 +43,10 @@ function PostCreate() {
     }
   };
   return (
-    <div className="w-full  mx-auto flex flex-col p-8">
+    <div className="   sm:mx-0 mx-auto flex flex-col md:p-8">
       {/* send image then use enctype in form */}
       <form
-        className="flex flex-col font-serif w-1/2 mx-auto mt-20"
+        className="flex flex-col font-serif sm:w-full createPst md:w-1/2 md:mx-auto  sm:p-5 md:mt-20"
         onSubmit={handleSubmit}
         encType="multipart/form-data"
       >
@@ -93,10 +94,10 @@ function PostCreate() {
         />
         <button
           type="submit"
-          className=" w-15 shadow-sm mt-3 shadow-black py-1 bg-blue-500 cursor-pointer rounded-md hover:bg-blue-400 duration-300"
+          className=" w-15 shadow-sm submitBtn md:mt-3 px-2 shadow-black py-1 bg-blue-500 cursor-pointer rounded-md hover:bg-blue-400 duration-300"
           disabled={isLoading}
         >
-          {isLoading ? "Adding..." : "Add"}
+          {isLoading ? `Adding... ${(<Loader />)}` : "Add"}
         </button>
       </form>
     </div>

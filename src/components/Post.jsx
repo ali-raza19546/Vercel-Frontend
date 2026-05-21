@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
-import { Share2, MessageCircle, Heart } from "lucide-react";
+import { Share2, MessageCircle, Heart, Delete, Loader } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -24,6 +24,13 @@ function Post({ post }) {
 
   const handlePostLikes = async () => {
     try {
+      {
+        isLoading && (
+          <span>
+            <Loader size={15} />;
+          </span>
+        );
+      }
       let { data } = await axios.post(
         `https://backend-sm-liard.vercel.app/post/${post._id}/like`,
         {},
@@ -39,6 +46,13 @@ function Post({ post }) {
   // Handle delete Post
   const handleDelete = async (postId) => {
     try {
+      {
+        isLoading && (
+          <h3>
+            <Loader size={15} />
+          </h3>
+        );
+      }
       await deletePost(postId).unwrap();
     } catch (e) {
       handleError(e.response.data.message);
@@ -88,7 +102,9 @@ function Post({ post }) {
         {loginUser.user.id === _id && (
           <div className="absolute top-8 right-2 text-red-400">
             {isLoading ? (
-              <p>Loading...</p>
+              <p>
+                <Loader size={15} />
+              </p>
             ) : (
               <span
                 className="text-2xl cursor-pointer"
@@ -96,7 +112,7 @@ function Post({ post }) {
                   handleDelete(post._id);
                 }}
               >
-                x
+                <Delete size={20} />
               </span>
             )}
           </div>
@@ -111,29 +127,30 @@ function Post({ post }) {
           {/* Post Actions */}
           <div className="flex items-center justify-between mt-5 border-t pt-4">
             <button
-              className="flex items-center gap-2 text-gray-600 hover:text-red-500 transition"
+              className="flex items-center gap-0 text-gray-600 hover:text-red-500 transition"
               onClick={handlePostLikes}
             >
               {isLike ? (
                 <>
-                  <span>❤</span> <p>{likeCount}Like</p>
+                  <span>❤ {likeCount}</span>
+                  <p className="likesCom">Like</p>
                 </>
               ) : (
                 <>
-                  <span>🤍</span>
-                  <p>{likeCount}Unlike</p>
+                  <span>🤍 {likeCount}</span>
+                  <p className="likesCom">Like</p>
                 </>
               )}
             </button>
 
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-500 transition">
+            <button className="flex items-center gap-0 text-gray-600 hover:text-blue-500 transition">
               <MessageCircle size={22} />
-              <span>Comment</span>
+              <span className="likesCom">Comment</span>
             </button>
 
-            <button className="flex items-center gap-2 text-gray-600 hover:text-green-500 transition">
+            <button className="flex items-center gap-0 text-gray-600 hover:text-green-500 transition">
               <Share2 size={22} />
-              <span>Share</span>
+              <span className="likesCom">Share</span>
             </button>
           </div>
         </div>
