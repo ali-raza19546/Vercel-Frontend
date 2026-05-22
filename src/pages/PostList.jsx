@@ -11,7 +11,7 @@ function PostList() {
   return (
     <>
       {isLoading && (
-        <div className="w-full h-screen flex items-center justify-center">
+        <div className="w-full min-h-screen flex items-center justify-center">
           <Loader2 size={40} className="animate-spin duration-300" />
         </div>
       )}
