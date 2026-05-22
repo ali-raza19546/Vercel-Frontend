@@ -43,7 +43,7 @@ function PostCreate() {
     }
   };
   return (
-    <div className="   sm:mx-0 mx-auto flex flex-col md:p-8">
+    <div className="sm:mx-0 mx-auto flex flex-col md:p-8">
       {/* send image then use enctype in form */}
       <form
         className="flex flex-col font-serif sm:w-full createPst md:w-1/2 md:mx-auto  sm:p-5 md:mt-20"
@@ -97,7 +97,7 @@ function PostCreate() {
           className=" w-15 shadow-sm submitBtn md:mt-3 px-2 shadow-black py-1 bg-blue-500 cursor-pointer rounded-md hover:bg-blue-400 duration-300"
           disabled={isLoading}
         >
-          {isLoading ? `Adding... ${(<Loader />)}` : "Add"}
+          {isLoading ? `Adding...` : "Add"}
         </button>
       </form>
     </div>
