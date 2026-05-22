@@ -7,7 +7,6 @@ import EmptyPost from "../components/EmptyPost";
 
 function PostList() {
   const { data: allPosts, isLoading, isError } = useGetPostsQuery();
-  console.log(allPosts.user);
 
   return (
     <>

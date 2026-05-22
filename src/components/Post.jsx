@@ -15,14 +15,15 @@ import { useDeletePostMutation } from "../store/TanStackSlice";
 import { handleError, handleSuccess } from "../utils/utils.js";
 
 function Post({ post }) {
-  let loginUser = JSON.parse(localStorage.getItem("userInfo"));
+  let loginUser = JSON.parse(localStorage.getItem("userInfo")) || {};
   let token = localStorage.getItem("token");
   const [deletePost, { isError, isSuccess, isLoading }] =
     useDeletePostMutation();
   const dispatch = useDispatch();
+  let { username = "Unknown", _id } = post.user || {};
 
   // jo bhi owner he usko apni post pr cross dikhna chaiey post ki id bhi aur user ki id bhi he
-  const [isLike, setIsLike] = useState(post?.likes.includes(post.user._id));
+  const [isLike, setIsLike] = useState(post?.likes?.includes(_id));
   const [likeCount, setLikeCount] = useState(post?.likeCount);
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState("");
@@ -67,15 +68,13 @@ function Post({ post }) {
           <div className="flex items-center gap-4 px-4 py-3  ">
             <div className=" bg-zinc-400 rounded-full  w-13 h-13 overflow-hidden flex items-center justify-center">
               <img
-                src={post.user.profileImage}
+                src={post.user?.profileImage || "/default-avatar.png"}
                 alt="profile"
                 className="w-full postImgPf  h-full bg-contain bg-center"
               />
             </div>
             <div>
-              <h2 className="font-bold text-lg capitalize">
-                {post.user.username}
-              </h2>
+              <h2 className="font-bold text-lg capitalize">{username}</h2>
               <p className="text-sm text-gray-500">
                 <i>
                   {formatDistanceToNow(new Date(post.createdAt), {
@@ -100,7 +99,7 @@ function Post({ post }) {
         </div>
 
         {/* Delete Post  */}
-        {loginUser.user.id === post.user._id && (
+        {loginUser?.user?.id === _id && (
           <div className="absolute top-8 right-2 text-red-400">
             {isLoading ? (
               <p>
