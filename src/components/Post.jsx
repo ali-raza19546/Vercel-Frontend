@@ -20,10 +20,9 @@ function Post({ post }) {
   const [deletePost, { isError, isSuccess, isLoading }] =
     useDeletePostMutation();
   const dispatch = useDispatch();
-  const { username, _id } = post.user;
 
   // jo bhi owner he usko apni post pr cross dikhna chaiey post ki id bhi aur user ki id bhi he
-  const [isLike, setIsLike] = useState(post?.likes.includes(_id));
+  const [isLike, setIsLike] = useState(post?.likes.includes(post.user._id));
   const [likeCount, setLikeCount] = useState(post?.likeCount);
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState("");
@@ -74,7 +73,9 @@ function Post({ post }) {
               />
             </div>
             <div>
-              <h2 className="font-bold text-lg capitalize">{username}</h2>
+              <h2 className="font-bold text-lg capitalize">
+                {post.user.username}
+              </h2>
               <p className="text-sm text-gray-500">
                 <i>
                   {formatDistanceToNow(new Date(post.createdAt), {
@@ -99,7 +100,7 @@ function Post({ post }) {
         </div>
 
         {/* Delete Post  */}
-        {loginUser.user.id === _id && (
+        {loginUser.user.id === post.user._id && (
           <div className="absolute top-8 right-2 text-red-400">
             {isLoading ? (
               <p>
