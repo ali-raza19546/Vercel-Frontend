@@ -68,7 +68,10 @@ function Post({ post }) {
           <div className="flex items-center gap-4 px-4 py-3  ">
             <div className=" bg-zinc-400 rounded-full  w-13 h-13 overflow-hidden flex items-center justify-center">
               <img
-                src={post.user.profileImage}
+                src={
+                  post.user.profileImage ||
+                  "https://th.bing.com/th/id/OIP.zSjnJGFe_TxQyoSX48_Z6wHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
+                }
                 alt="profile"
                 className="w-full postImgPf  h-full bg-contain bg-center"
               />
