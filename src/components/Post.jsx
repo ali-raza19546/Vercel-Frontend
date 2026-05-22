@@ -24,13 +24,6 @@ function Post({ post }) {
 
   const handlePostLikes = async () => {
     try {
-      {
-        isLoading && (
-          <span>
-            <Loader size={15} />;
-          </span>
-        );
-      }
       let { data } = await axios.post(
         `https://backend-sm-liard.vercel.app/post/${post._id}/like`,
         {},

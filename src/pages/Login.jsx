@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { handleSuccess, handleError } from "../utils/utils.js";
 import axios from "axios";
+import { Loader } from "lucide-react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import Header from "../components/Header.jsx";
 
@@ -64,7 +65,10 @@ function Login() {
           onChange={handleOnChange}
           className="border border-zinc-500 p-2 shadow-md rounded-md w-full  mt-1"
         />
-        <button className="bg-green-700 cursor-pointer px-2 text-lg w-full mt-3 py-1 hover:bg-green-600 duration-300 ">
+        <button
+          className="bg-green-700 cursor-pointer px-2 text-lg text-center w-full mt-3 py-1 hover:bg-green-600 duration-300 "
+          disable={loading}
+        >
           {loading ? `Logging In... ${(<Loader size={17} />)}` : "Login"}
         </button>
         <p className="text-center mt-4 text-md text-zinc-700">
