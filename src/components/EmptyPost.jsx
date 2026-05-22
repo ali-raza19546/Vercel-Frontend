@@ -12,7 +12,7 @@ function EmptyPost() {
           {/* Card */}
           <div className="relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-10 text-center shadow-2xl">
             {/* Icon */}
-            <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-4xl shadow-lg">
+            <div className="w-24 h-24 mx-auto rounded-full bg-linear-to-r from-pink-500 to-purple-600 flex items-center justify-center text-4xl shadow-lg">
               📸
             </div>
 
@@ -26,7 +26,7 @@ function EmptyPost() {
             </p>
 
             {/* Button */}
-            <button className="mt-8 px-8 py-3 rounded-2xl bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-white font-semibold hover:scale-105 transition duration-300 shadow-lg">
+            <button className="mt-8 px-8 py-3 rounded-2xl bg-linear-to-r from-pink-500 via-purple-500 to-cyan-500 text-white font-semibold hover:scale-105 transition duration-300 shadow-lg">
               Create First Post
             </button>
           </div>
