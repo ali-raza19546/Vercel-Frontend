@@ -16,7 +16,7 @@ function PostList() {
         </div>
       )}
 
-      {!allPosts?.length && !isLoading && <EmptyPost />}
+      {allPosts?.length === undefined && !isLoading && <EmptyPost />}
       <div className="w-full px-9 py-4 overflow-auto">
         {allPosts?.map((post) => (
           <Post key={post._id} post={post} />

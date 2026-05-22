@@ -1,3 +1,4 @@
+import { Link } from "lucide-react";
 import React from "react";
 
 function EmptyPost() {
@@ -27,7 +28,7 @@ function EmptyPost() {
 
             {/* Button */}
             <button className="mt-8 px-8 py-3 rounded-2xl bg-linear-to-r from-pink-500 via-purple-500 to-cyan-500 text-white font-semibold hover:scale-105 transition duration-300 shadow-lg">
-              Create First Post
+              <Link to={"/createpost"}>Create Your First Post</Link>
             </button>
           </div>
         </div>
