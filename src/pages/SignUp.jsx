@@ -123,7 +123,7 @@ function SignUp() {
             className="border border-zinc-500 p-2 w-full my-2"
           />
           <button
-            className="bg-green-700 cursor-pointer text-lg text-center w-full mt-3 py-1 "
+            className="bg-green-700 flex items-center justify-center cursor-pointer text-lg text-center w-full mt-3 py-1 "
             disabled={isLoading}
           >
             {isLoading ? (

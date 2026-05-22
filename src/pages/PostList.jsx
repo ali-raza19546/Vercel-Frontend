@@ -14,6 +14,7 @@ function PostList() {
           <Loader2 size={30} className="animate-spin duration-300" />
         </div>
       )}
+
       <div className="w-full px-9 py-4 overflow-auto">
         {allPosts?.map((post) => (
           <Post key={post._id} post={post} />
