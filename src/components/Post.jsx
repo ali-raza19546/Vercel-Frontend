@@ -20,7 +20,7 @@ function Post({ post }) {
   const [deletePost, { isError, isSuccess, isLoading }] =
     useDeletePostMutation();
   const dispatch = useDispatch();
-  let { username, _id, profileImg } = post?.user;
+  let { username, _id } = post?.user;
 
   // jo bhi owner he usko apni post pr cross dikhna chaiey post ki id bhi aur user ki id bhi he
   const [isLike, setIsLike] = useState(post?.likes.includes(_id));
