@@ -38,13 +38,13 @@ function SignUp() {
         );
         if (resData.data.success) {
           handleSuccess(resData.data.message);
+          handleSuccess("Welcome 🎉! Please Check your email.");
           setSignUpForm({
             username: "",
             email: "",
             password: "",
             confirmPassword: "",
           });
-          handleSuccess("Welcome 🎉! Please Check your email.");
         }
       } else {
         handleError("password does not match!");
