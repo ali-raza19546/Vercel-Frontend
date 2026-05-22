@@ -71,9 +71,11 @@ function Login() {
           className="bg-green-700 cursor-pointer px-2 text-lg flex items-center justify-center w-full mt-3 py-1 hover:bg-green-600 duration-300 "
           disable={loading}
         >
-          {loading
-            ? `Logging In... ${(<Loader2 size={17} className="animate-spin duration-300" />)}`
-            : "Login"}
+          {loading ? (
+            <Loader2 size={17} className="animate-spin duration-300" />
+          ) : (
+            "Login"
+          )}
         </button>
         <p className="text-center mt-4 text-md text-zinc-700">
           Don't have Account:{" "}
