@@ -68,7 +68,7 @@ function Post({ post }) {
           <div className="flex items-center gap-4 px-4 py-3  ">
             <div className=" bg-zinc-400 rounded-full  w-13 h-13 overflow-hidden flex items-center justify-center">
               <img
-                src={post.user?.profileImage || "/default-avatar.png"}
+                src={post.user?.profileImage}
                 alt="profile"
                 className="w-full postImgPf  h-full bg-contain bg-center"
               />
