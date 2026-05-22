@@ -46,7 +46,6 @@ function SignUp() {
             confirmPassword: "",
           });
           setPreviewUrl(null);
-          setPfImage(null);
         }
       } else {
         handleError("password does not match!");
