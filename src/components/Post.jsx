@@ -1,6 +1,13 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
-import { Share2, MessageCircle, Heart, Delete, Loader } from "lucide-react";
+import {
+  Share2,
+  MessageCircle,
+  Heart,
+  Delete,
+  Loader,
+  Loader2,
+} from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -42,7 +49,7 @@ function Post({ post }) {
       {
         isLoading && (
           <h3>
-            <Loader size={15} />
+            <Loader2 size={15} className="animate-spin duration-300" />
           </h3>
         );
       }
@@ -96,7 +103,7 @@ function Post({ post }) {
           <div className="absolute top-8 right-2 text-red-400">
             {isLoading ? (
               <p>
-                <Loader size={15} />
+                <Loader2 size={15} className="animate-spin duration-300" />
               </p>
             ) : (
               <span

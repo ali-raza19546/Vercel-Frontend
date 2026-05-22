@@ -3,7 +3,7 @@ import axios from "axios";
 import { handleSuccess, handleError } from "../utils/utils.js";
 import { Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
-import { Loader } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 function SignUp() {
   // user ka username nikalna he to {user} user.username
@@ -45,12 +45,13 @@ function SignUp() {
             confirmPassword: "",
           });
         }
-        setIsLoading(false);
       } else {
         handleError("password does not match!");
       }
     } catch (error) {
       handleError(error.response.data.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -125,7 +126,11 @@ function SignUp() {
             className="bg-green-700 cursor-pointer text-lg text-center w-full mt-3 py-1 "
             disabled={isLoading}
           >
-            {isLoading ? <Loader /> : "Submit"}
+            {isLoading ? (
+              <Loader2 className="text-center animate-spin duration-300" />
+            ) : (
+              "Submit"
+            )}
           </button>
           <p className="text-center mt-4 text-md text-zinc-700">
             Already have Account:{" "}
