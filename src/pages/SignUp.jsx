@@ -44,6 +44,7 @@ function SignUp() {
             password: "",
             confirmPassword: "",
           });
+          handleSuccess("Welcome 🎉! Please Check your email.");
         }
       } else {
         handleError("password does not match!");
