@@ -45,6 +45,8 @@ function SignUp() {
             password: "",
             confirmPassword: "",
           });
+          setPreviewUrl(null);
+          setPfImage(null);
         }
       } else {
         handleError("password does not match!");
@@ -128,7 +130,10 @@ function SignUp() {
             disabled={isLoading}
           >
             {isLoading ? (
-              <Loader2 className="text-center animate-spin duration-300" />
+              <Loader2
+                size={23}
+                className="text-center animate-spin duration-300"
+              />
             ) : (
               "Submit"
             )}

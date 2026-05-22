@@ -72,7 +72,7 @@ function Login() {
           disable={loading}
         >
           {loading ? (
-            <Loader2 size={17} className="animate-spin duration-300" />
+            <Loader2 size={23} className="animate-spin duration-300" />
           ) : (
             "Login"
           )}
