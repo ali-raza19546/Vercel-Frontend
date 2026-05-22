@@ -27,11 +27,14 @@ function EmptyPost() {
             </p>
 
             {/* Button */}
-            <Link to={"/createpost"}>
-              <button className="mt-8 px-8 py-3 rounded-2xl bg-linear-to-r from-pink-500 via-purple-500 to-cyan-500 text-white font-semibold hover:scale-105 transition duration-300 shadow-lg">
+            <>
+              <Link
+                to={"/createpost"}
+                className="mt-8 px-8 py-3 rounded-2xl bg-linear-to-r from-pink-500 via-purple-500 to-cyan-500 text-white font-semibold hover:scale-105 transition duration-300 shadow-lg"
+              >
                 Create Your First Post
-              </button>
-            </Link>
+              </Link>
+            </>
           </div>
         </div>
       </div>
