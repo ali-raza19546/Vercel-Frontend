@@ -58,7 +58,7 @@ padding: 20px;
   }
   .indexPost{
     padding: .25rem .25rem;
-    height: 60vh;
+    height: fit-content;
   }
   .circleText{
     font-size: 1.5rem;
