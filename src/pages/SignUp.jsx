@@ -81,7 +81,10 @@ function SignUp() {
               name="pfImage"
               onChange={handleChangeImage}
             />
-            <label htmlFor="fileInput" className="text-4xl font-semibold mb-2">
+            <label
+              htmlFor="fileInput"
+              className="text-4xl circleText font-semibold mb-2"
+            >
               +
             </label>
           </>

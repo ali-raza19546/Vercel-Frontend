@@ -4,7 +4,7 @@ import React from "react";
 function EmptyPost() {
   return (
     <div>
-      <div className="h-screen bg-[#0f0f12] flex items-center justify-center px-6">
+      <div className="h-screen bg-grey-100 flex items-center justify-center px-6">
         <div className="relative max-w-md w-full">
           {/* Glow Effects */}
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-pink-500/20 rounded-full blur-3xl"></div>

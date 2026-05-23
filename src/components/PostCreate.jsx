@@ -94,7 +94,7 @@ function PostCreate() {
         />
         <button
           type="submit"
-          className=" w-15 shadow-sm submitBtn md:mt-3  shadow-black py-1 bg-blue-500 cursor-pointer rounded-md hover:bg-blue-400 duration-300"
+          className=" w-15 shadow-sm submitBtn md:mt-3 px-5 shadow-black py-1 bg-blue-500 cursor-pointer rounded-md hover:bg-blue-400 duration-300"
           disabled={isLoading}
         >
           {isLoading ? `Adding...` : "Add"}
