@@ -20,9 +20,9 @@ function Header() {
     setIsLogin(false);
   };
   return (
-    <header className="bg-white shadow-md px-6 py-4 sticky top-0 flex items-center z-50 justify-between">
+    <header className="navBarRes bg-white shadow-md md:px-6 md:py-4 sticky top-0 flex items-center z-50 justify-between">
       <Link to={"/postlist"}>
-        <h1 className="text-2xl font-bold text-blue-600">SocialApp</h1>
+        <h1 className="text-2xl font-bold text-blue-600">UMEXA</h1>
       </Link>
 
       <div className="flex items-center gap-4">
