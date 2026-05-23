@@ -64,7 +64,7 @@ function Post({ post }) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 indexPost flex items-center justify-center md:p-4">
+    <div className="md:min-h-screen bg-gray-100 indexPost flex items-center justify-center md:p-4">
       {/* Post Card */}
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-lg overflow-hidden relative ">
         {/* Post Header */}
