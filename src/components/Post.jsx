@@ -60,9 +60,9 @@ function Post({ post }) {
   };
 
   return (
-    <div className="min-h-screen postContainer bg-gray-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       {/* Post Card */}
-      <div className="w-full post max-w-2xl bg-white rounded-2xl shadow-lg overflow-hidden relative ">
+      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-lg overflow-hidden relative ">
         {/* Post Header */}
         <div className="container flex flex-col ">
           <div className="flex items-center gap-4 px-4 py-3  ">
