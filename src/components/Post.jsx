@@ -20,7 +20,11 @@ function Post({ post }) {
   const [deletePost, { isError, isSuccess, isLoading }] =
     useDeletePostMutation();
   const dispatch = useDispatch();
-  let { username = "Unknown", _id } = post.user || {};
+  let {
+    username = "Unknown",
+    _id,
+    profileImg = "https://res.cloudinary.com/dyethf2dn/image/upload/v1779502470/profileImages/kukrv3aorzntnovyppcy.jpg",
+  } = post.user || {};
 
   // jo bhi owner he usko apni post pr cross dikhna chaiey post ki id bhi aur user ki id bhi he
   const [isLike, setIsLike] = useState(post?.likes?.includes(_id));
@@ -60,7 +64,7 @@ function Post({ post }) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gray-100 indexPost flex items-center justify-center md:p-4">
       {/* Post Card */}
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-lg overflow-hidden relative ">
         {/* Post Header */}
@@ -68,7 +72,7 @@ function Post({ post }) {
           <div className="flex items-center gap-4 px-4 py-3  ">
             <div className=" bg-zinc-400 rounded-full  w-13 h-13 overflow-hidden flex items-center justify-center">
               <img
-                src={post.user?.profileImage}
+                src={post.user?.profileImage || profileImg}
                 alt="profile"
                 className="w-full postImgPf  h-full bg-contain bg-center"
               />
